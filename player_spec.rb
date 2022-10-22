@@ -34,4 +34,26 @@ describe Player do
 
     expect(@player.health).to eq(@initial_health - 10)
   end
+
+  context "with a health greater than 100" do 
+    before do 
+      @initial_rank = 150
+      @player = Player.new("goonies", @initial_rank)
+    end
+
+    it "is a strong player" do 
+      expect(@player.strong?).to eq(true)
+    end
+  end
+
+  context "with a health of 100 or less" do 
+    before do 
+      @initial_rank = 100
+      @player = Player.new("goonies", @initial_rank)
+    end
+
+    it "is a wimpy player" do 
+      expect(@player.strong?).to eq(false)
+    end
+  end
 end

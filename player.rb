@@ -17,9 +17,12 @@ class Player
   end
 
   def score 
-    @health += @name.length
+    @health + @name.length
   end
 
+  def strong?
+    @health >= 150
+  end
   def to_s
     "I'm #{@name} with a health of #{@health} and a score of #{score}."
   end
